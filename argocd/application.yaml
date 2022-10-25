@@ -10,9 +10,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    helm:
-      values: |
-        name: osman
     path: helm
     repoURL: https://github.com/modridi/hello-world
     targetRevision: HEAD
