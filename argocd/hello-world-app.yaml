@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: argocd
+spec:
+  destination:
+    namespace: node-exporter
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm/hello-world
+    repoURL: https://github.com/modridi/hello-world
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+
